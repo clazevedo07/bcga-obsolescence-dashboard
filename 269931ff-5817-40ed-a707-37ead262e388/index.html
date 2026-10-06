@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#075fae" />
+    <meta
+      name="description"
+      content="Carregamento local do inventário TIC para avaliação de obsolescência tecnológica do Banco Caixa Geral Angola."
+    />
+    <title>Auditoria à Obsolescência TIC | Caixa Angola</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="institution" href="#" aria-label="Caixa Angola — início">
+        <img class="institution-logo" src="assets/caixa-angola-logo.png" alt="Caixa Angola" />
+      </a>
+
+      <span class="header-divider" aria-hidden="true"></span>
+
+      <div class="product-name">
+        <strong>Auditoria à Obsolescência TIC</strong>
+        <span>Banco Caixa Geral Angola</span>
+      </div>
+
+    </header>
+
+    <main id="main-content" class="main-content">
+      <section id="landing-view" class="landing-view" aria-labelledby="page-title">
+        <div class="intro">
+          <p class="eyebrow">
+            <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M3.5 3.5h13v13h-13zM7 7h6M7 10h6M7 13h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            AVALIAÇÃO DE RISCO TECNOLÓGICO
+          </p>
+          <h1 id="page-title">Auditoria à <span>Obsolescência TIC</span></h1>
+          <p class="intro-description">
+            Carregue o inventário de aplicações e componentes para iniciar a avaliação de obsolescência tecnológica.
+          </p>
+        </div>
+
+        <section class="upload-card" aria-label="Carregamento do inventário">
+          <div class="upload-card-heading">
+            <div class="heading-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M7 3.75h7l5 5v11.5H7a2 2 0 0 1-2-2v-12a2.5 2.5 0 0 1 2-2.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                <path d="M14 4v5h5M12 17V11m0 0-2.5 2.5M12 11l2.5 2.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <h2>Carregar inventário</h2>
+              <p>Selecione o ficheiro de origem para preparar a análise.</p>
+            </div>
+          </div>
+
+          <div
+            class="upload-area"
+            id="drop-zone"
+            role="button"
+            tabindex="0"
+            aria-label="Arraste o ficheiro Excel para esta área ou clique para selecionar"
+            aria-describedby="upload-instructions file-requirements"
+          >
+            <span class="upload-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none">
+                <path d="M24 30V7m0 0L15.5 15.5M24 7l8.5 8.5M9 29v8a4 4 0 0 0 4 4h22a4 4 0 0 0 4-4v-8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <strong id="upload-instructions">Arraste o ficheiro Excel para esta área ou clique para selecionar</strong>
+            <span class="upload-secondary">Formatos aceites: <b>.xlsx</b> e <b>.xls</b></span>
+            <span class="upload-action" aria-hidden="true">Selecionar ficheiro</span>
+            <input id="file-input" type="file" accept=".xlsx,.xls" hidden />
+          </div>
+
+          <div id="selected-file" class="selected-file" hidden>
+            <span class="file-type-icon" aria-hidden="true">XLS</span>
+            <span id="file-label" class="file-name">Ficheiro selecionado</span>
+            <button id="remove-file" class="icon-button" type="button" aria-label="Remover ficheiro selecionado">
+              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="m5 5 10 10M15 5 5 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
+
+          <div id="upload-status" class="status-box" role="status" aria-live="polite" hidden></div>
+
+          <section id="file-requirements" class="requirements" aria-labelledby="requirements-title">
+            <div class="requirements-heading">
+              <span class="requirements-icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none">
+                  <path d="M4.25 3.25h7l4.5 4.5v9h-11.5v-13.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+                  <path d="M11.25 3.5v4.5h4.25M7 11h6M7 14h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <div>
+                <h3 id="requirements-title">Requisitos do inventário</h3>
+                <p>O ficheiro deve conter estas duas folhas:</p>
+              </div>
+            </div>
+            <ul class="sheet-list">
+              <li><span class="check-icon" aria-hidden="true">✓</span><code>01. Inventário Aplicações</code></li>
+              <li><span class="check-icon" aria-hidden="true">✓</span><code>02. Inventário Componentes</code></li>
+            </ul>
+          </section>
+
+        </section>
+
+        <footer class="page-footer">
+          <span>Banco Caixa Geral Angola</span>
+          <span class="footer-separator" aria-hidden="true">·</span>
+          <span>Auditoria e governação tecnológica</span>
+        </footer>
+      </section>
+
+      <section id="dashboard-view" class="dashboard-view" hidden>
+        <div class="page-shell">
+          <header class="dashboard-heading">
+            <div>
+              <p class="eyebrow">BANCO CAIXA GERAL ANGOLA</p>
+              <h1>Resumo executivo da obsolescência TIC</h1>
+              <div id="metadata" class="metadata"></div>
+            </div>
+            <button id="new-file" class="secondary-button" type="button">Carregar outro ficheiro</button>
+          </header>
+
+          <nav class="dashboard-nav" aria-label="Páginas de análise">
+            <button type="button" class="dashboard-nav-button is-active" data-dashboard-page-link="summary" aria-current="page">Resumo</button>
+            <button type="button" class="dashboard-nav-button" data-dashboard-page-link="applications">Aplicações</button>
+            <button type="button" class="dashboard-nav-button" data-dashboard-page-link="timeline">Timeline</button>
+            <button type="button" class="dashboard-nav-button" data-dashboard-page-link="expiring">Ativos obsoletos</button>
+            <button type="button" class="dashboard-nav-button" data-dashboard-page-link="vendors">Fornecedores</button>
+            <button type="button" class="dashboard-nav-button" data-dashboard-page-link="domains">Domínios</button>
+            <button type="button" class="dashboard-nav-button" data-dashboard-page-link="remediation">Remediação</button>
+          </nav>
+
+          <section id="dashboard-summary-page" class="dashboard-page" data-dashboard-page="summary">
+          <section class="executive-summary card-panel" aria-labelledby="executive-summary-heading">
+            <div class="assessment-overview">
+              <div class="assessment-overview-kpi">
+                <h2 id="executive-summary-heading">Resumo da avaliação de obsolescência do parque tecnológico</h2>
+                <strong id="assessment-risk-total" class="assessment-risk-total"></strong>
+                <p>ativos obsoletos ou em risco</p>
+                <span id="assessment-risk-share" class="assessment-risk-share"></span>
+              </div>
+              <div class="assessment-composition">
+                <h3>Distribuição dos resultados</h3>
+                <div id="assessment-bar" class="assessment-bar" role="img"></div>
+                <div id="assessment-legend" class="assessment-legend" aria-label="Legenda dos resultados"></div>
+              </div>
+            </div>
+            <div class="scope-summary" aria-label="Universo da análise">
+              <div class="scope-metrics">
+                <div><span>Total de ativos carregados</span><strong id="scope-total-loaded"></strong></div>
+                <div><span>Duplicados removidos</span><strong id="scope-duplicates-removed"></strong></div>
+                <div><span>Fora do âmbito (n.a. virtual machine)</span><strong id="scope-out-of-scope"></strong></div>
+                <div><span>Ativos considerados na análise</span><strong id="scope-considered"></strong></div>
+              </div>
+            </div>
+          </section>
+          <section id="assessment-outcomes" class="assessment-outcomes" aria-label="Resultados por classificação"></section>
+
+          <div class="executive-lower-grid">
+            <section class="card-panel executive-chart" aria-labelledby="distribution-heading">
+              <div class="panel-heading">
+                <h2 id="distribution-heading">Obsolescência por categoria e ambiente</h2>
+              </div>
+              <div id="environment-category-legend" class="environment-category-legend" aria-label="Legenda dos resultados"></div>
+              <div id="state-chart" class="environment-category-grid" aria-label="Distribuição percentual por tipo de ativo e ambiente"></div>
+              <p id="chart-footnote" class="chart-footnote" hidden></p>
+            </section>
+
+            <section class="card-panel category-distribution" aria-labelledby="category-heading">
+              <div class="panel-heading">
+                <h2 id="category-heading">Resultados por categoria</h2>
+              </div>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th scope="col">Categoria</th>
+                      <th scope="col">No âmbito</th>
+                      <th scope="col">Yes</th>
+                      <th scope="col">At Risk</th>
+                      <th scope="col">No</th>
+                      <th scope="col">n.d. - No official lifecycle<br>information available</th>
+                    </tr>
+                  </thead>
+                  <tbody id="category-distribution-body"></tbody>
+                </table>
+              </div>
+              <p class="category-footnote">Na categoria Application Software, a classificação “n.d. – No official lifecycle information available” contempla também os números relativos ao versionamento das aplicações internas.</p>
+            </section>
+          </div>
+
+          <section class="out-of-scope-summary" aria-labelledby="out-of-scope-heading">
+            <h2 id="out-of-scope-heading">Notas de classificação</h2>
+            <div id="out-of-scope-list" class="out-of-scope-list"></div>
+          </section>
+          </section>
+
+          <section id="dashboard-analytics-page" class="dashboard-page" data-dashboard-page="analytics" hidden>
+            <div id="dashboard-analytics-content" class="dashboard-analytics-content"></div>
+          </section>
+        </div>
+      </section>
+
+      <dialog id="analytics-detail-dialog" class="analytics-detail-dialog">
+        <div class="analytics-detail-header">
+          <h2 id="analytics-detail-title"></h2>
+          <button type="button" class="icon-button" data-close-detail aria-label="Fechar detalhes">×</button>
+        </div>
+        <div id="analytics-detail-content" class="analytics-detail-content"></div>
+      </dialog>
+    </main>
+
+    <script src="app.js"></script>
+    <script src="advanced-dashboard.js"></script>
+  </body>
+</html>
